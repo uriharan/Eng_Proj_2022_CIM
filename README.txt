@@ -5,7 +5,7 @@ each section should be moved to the following location:
 1. Mill_Code folder should be placed at \\MILL-CIM\Users\cimlab\Documents\
 2. Printer_Code folder should be placed at \\cim9\
 
-Note that for the student’s GUI to function, these folders should have network write permissions.
+Note that for the studentâ€™s GUI to function, these folders should have network write permissions.
 [Right Click - Properties - Sharing - Advanced Sharing - Permissions - Change]
 
 to run the code, detector_final.py should be run (requires watchdog installed)
