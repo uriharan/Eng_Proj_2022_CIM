@@ -1,0 +1,96 @@
+<InputScreen>:
+    path:path
+	machine:machine
+    file:file
+	orientation: "vertical"
+
+	BoxLayout:
+
+	    size_hint_y:1
+	    orientation: "vertical"
+        BoxLayout:
+            size_hint_y:0.07
+
+            Button:
+                text:"Enter File Path"
+                on_press:root.connect()
+            TextInput:
+                text:''
+                id: path
+        BoxLayout:
+            size_hint_y:0.07
+            Label:
+                text:'Current File:'
+                id: file
+
+
+
+
+        BoxLayout:
+            size_hint_y:0.05
+            Label:
+                text:'Machine Type'
+            Spinner:
+                text:'Choose Machine'
+                values:['CNC','Printer']
+                id:machine
+
+        Label:
+            size_hint_y:0.3
+        BoxLayout:
+            size_hint_y:0.05
+            Button:
+                text: "Send To Machine"
+                on_press: root.insert()
+
+            Button:
+                text: 'Complete'
+                on_press: root.complete()
+
+
+<CompleteScreen>:
+    list:list
+    file:file
+    info:info
+    upd:upd
+	orientation: "vertical"
+	padding: 30
+	BoxLayout:
+	    size_hint_y:1.60
+	    orientation: "vertical"
+	    Label:
+
+	        text:'Please Click Show List'
+            id: file
+	BoxLayout:
+	    orientation: "vertical"
+    	Button:
+    	    size_hint_y:0.1
+    	    id:upd
+            text: 'Show List'
+            on_press: root.update()
+        Label:
+            size_hint_y:1
+            text:''
+            id: list
+	BoxLayout:
+	    size_hint_y:0.6
+	    orientation: "vertical"
+        BoxLayout:
+            size_hint_y:0.17
+            Label:
+                id: info
+                text:'This option is for marking that your product is completed, and allowing the next to be sent.\nDo not click yes before your product is done.\nIf milling: please remove the used material block and replace with another for the next student.\nIf printing: please remove the finished product\n'
+        BoxLayout:
+            size_hint_y:0.07
+            Button:
+                text: "No, Go Back"
+                on_press:
+                    root.manager.current = 'input'
+
+            Button:
+                text: 'Yes, Complete'
+                on_press:
+                    root.done()
+                    root.manager.current = 'input'
+
